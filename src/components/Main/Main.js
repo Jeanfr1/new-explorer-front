@@ -1,11 +1,13 @@
 import React from "react";
 import "./Main.css";
+import SearchForm from "../SearchForm/SearchForm";
 
-function Main() {
+function Main({ onSearch }) {
   return (
     <main className="main">
-      <h1>Welcome to News Explorer</h1>
-      <p>Search for the latest news and save your favorite articles!</p>
+      <h1>Bem-vindo ao News Explorer</h1>
+      <p>Pesquise as últimas notícias!</p>
+      <SearchForm onSearch={onSearch} />
     </main>
   );
 }
