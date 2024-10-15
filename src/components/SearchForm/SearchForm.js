@@ -1,31 +1,57 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch }) {
-  const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
+function SearchForm({ onArticleSearch }) {
+  const [isSubmitButtonClicked, setIsSubmitButtonClicked] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!inputValue) {
-      setError("Por favor, insira uma palavra-chave");
-      return;
-    }
-    setError("");
-    onSearch(inputValue);
-  };
+  const [articleKeyword, setArticleKeyword] = useState("");
 
+  function handleArticleKeywordChange(e) {
+    setIsSubmitButtonClicked(false);
+    setArticleKeyword(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    console.log("handling search submit");
+    e.preventDefault();
+    onArticleSearch(articleKeyword);
+  }
+
+  function onSubmitClick(e) {
+    setIsSubmitButtonClicked(true);
+  }
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Pesquise por notícias"
-      />
-      <button type="submit">Buscar</button>
-      {error && <p className="error">{error}</p>}
-    </form>
+    <section className="search-form">
+      <h1 className="search-form__title">What's going on in the world?</h1>
+      <h2 className="search-form__subtitle">
+        Find the latest news on any topic and save them in your personal
+        account.
+      </h2>
+      <form className="search-form__form" onSubmit={handleSubmit}>
+        <input
+          className="search-form__input"
+          type="text"
+          name="article-name"
+          value={articleKeyword}
+          onChange={handleArticleKeywordChange}
+          id="articleKeyword"
+          placeholder="Enter topic"
+          minLength="1"
+          maxLength="30"
+          required
+        />
+        <button
+          type="submit"
+          id="articleSearchSubmit"
+          onClick={onSubmitClick}
+          className={`search-form__submit-button ${
+            isSubmitButtonClicked ? "search-form__submit-button_active" : ""
+          }`}
+        >
+          Search
+        </button>
+      </form>
+    </section>
   );
 }
 

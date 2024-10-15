@@ -3,12 +3,9 @@ import "./Preloader.css";
 
 function Preloader() {
   return (
-    <div className="preloader-container">
-      <div className="preloader-spinner">
-        <div className="preloader-circle"></div>
-        <div className="preloader-circle"></div>
-      </div>
-      <p className="preloader-text">Carregando...</p>
+    <div className="preloader">
+      <div className="preloader__animation" />
+      <h2 className="preloader__title">Searching for news...</h2>
     </div>
   );
 }

@@ -1,9 +1,107 @@
+/* Footer Styles */
 .footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  display: none;
+}
+
+.footer--active {
+  display: flex;
+  padding: 30px clamp(41px, 5.555%, 80px) 30px clamp(40px, 7.222%, 104px);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__copyrights {
+  min-width: max-content;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #b6bcbf;
+}
+
+.footer__navbar {
+  display: flex;
+  gap: 42px;
+  align-items: center;
+}
+
+.footer__links {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer__link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #1a1b22;
+  text-decoration: none;
+}
+
+.footer__icons {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.footer__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer__icon--github {
+  background-image: url("../../images/github-icon_comp.svg");
+}
+
+.footer__icon--linkedin {
+  width: 24.5px;
+  height: 24.5px;
+  background-image: url("../../images/linkedin-icon.svg");
+}
+
+@media (max-width: 768px) {
+  .footer--active {
+    padding: 21px clamp(16px, 5.338%, 41px) 18px clamp(16px, 5.208%, 40px);
+  }
+
+  .footer__icons {
+    gap: 27px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer--active {
+    flex-direction: column-reverse;
+    padding: 20px 16px 22px;
+    align-items: center;
+    gap: 38px;
+  }
+
+  .footer__navbar {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 33px;
+    align-items: flex-start;
+  }
+
+  .footer__icons {
+    gap: 28px;
+    align-items: flex-start;
+  }
+}
+
+.footer__copyrights,
+.footer__navbar,
+.footer__links,
+.footer__icons {
+  margin: 0;
+  padding: 0;
 }

@@ -1,26 +1,48 @@
-// src/utils/NewsApi.js
-
-const API_KEY = "302a15ed09b944aaa129ae6f4878b1d5";
-const BASE_URL = "https://newsapi.org/v2/everything";
-
-export const fetchNews = async (query) => {
-  const today = new Date().toISOString().split("T")[0];
-  const lastWeek = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
-    .toISOString()
-    .split("T")[0];
-
-  try {
-    const response = await fetch(
-      `${BASE_URL}?q=${query}&from=${lastWeek}&to=${today}&pageSize=100&apiKey=${API_KEY}`
-    );
-
-    if (!response.ok) {
-      throw new Error("Erro ao buscar as notícias");
-    }
-
-    const data = await response.json();
-    return data.articles;
-  } catch (error) {
-    throw new Error(error.message);
+class NewsApi {
+  constructor() {
+    this._baseUrl = "https://nomoreparties.co/news/v2/everything?";
+    this._apiKey = "302a15ed09b944aaa129ae6f4878b1d5";
   }
-};
+
+  _checkResponse = (res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  };
+  /* from=${this._sinceWhen}& */
+
+  getArticles(qeustion) {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    let yyyy = today.getFullYear();
+
+    /* let sevenDaysEarlier = String(today.getDate() - 7).padStart(2, '0');
+      let monthWeekAgo = mm;
+      if (sevenDaysEarlier < 0) {
+        monthWeekAgo = String(today.getMonth()).padStart(2, '0');
+      }
+      let yearWeekAgo = yyyy;
+      if (monthWeekAgo < 0) {
+        yearWeekAgo = String(today.getFullYear() - 1);
+      }
+  
+      sevenDaysEarlier=  */
+    /* &from=${sevenDaysEarlier} */
+    today = yyyy + "-" + mm + "-" + dd;
+    console.log(today);
+
+    return fetch(
+      `${this._baseUrl}q=${qeustion}&to=${today}&pageSize=100&apiKey=46d25ee8365a48a598cd16bba913793b`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Headers": "*",
+          Authoriztion: this._apiKey,
+          "X-Api-Key": this._apiKey,
+        },
+      }
+    ).then((res) => this._checkResponse(res));
+  }
+}
+
+export default new NewsApi();
