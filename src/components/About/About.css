@@ -1,13 +1,73 @@
 .about {
-  padding: 20px;
-  text-align: center;
+  display: flex;
+  padding: 80px clamp(40px, 15%, 216px) 80px clamp(40px, 7%, 104px);
+  background: #ffffff;
+  gap: 56px;
+  box-sizing: border-box;
 }
 
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+.about__image {
+  background-image: url("../../images/josean-profile-image.jpg");
+  width: clamp(232px, 32vw, 464px);
+  height: clamp(232px, 32vw, 464px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.about p {
-  font-size: 1.2rem;
+.about__content {
+  padding-top: 51px;
+  margin: 0;
+}
+
+.about__title {
+  margin-bottom: 24px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #1a1b22;
+}
+
+.about__description {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #1a1b22;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 24px;
+    gap: 32px;
+  }
+
+  .about__image {
+    margin-top: 21px;
+  }
+
+  .about__title {
+    margin-bottom: 16px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 24px;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+  }
+
+  .about__description {
+    margin-top: 16px;
+  }
 }
