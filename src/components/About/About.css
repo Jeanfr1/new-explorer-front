@@ -1,5 +1,7 @@
 .about {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 80px clamp(40px, 15%, 216px) 80px clamp(40px, 7%, 104px);
   background: #ffffff;
   gap: 56px;
@@ -7,7 +9,7 @@
 }
 
 .about__image {
-  background-image: url("../../images/josean-profile-image.jpg");
+  background-image: url("/images/josean-profile-image.jpg"); /* Caminho absoluto para a imagem */
   width: clamp(232px, 32vw, 464px);
   height: clamp(232px, 32vw, 464px);
   background-repeat: no-repeat;
@@ -19,6 +21,7 @@
 
 .about__content {
   padding-top: 51px;
+  text-align: center; /* Centralizando o texto */
   margin: 0;
 }
 

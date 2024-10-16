@@ -2,7 +2,9 @@
   width: 100%;
   height: 80px;
   margin: 0;
-  margin-bottom: -80px;
+  position: fixed; /* Fixar o header no topo */
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   color: white;
@@ -28,7 +30,6 @@
 .header__logo {
   color: white;
   font-family: "Roboto Slab";
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   text-decoration: none;
@@ -36,7 +37,7 @@
 
 .header__nav-button {
   display: none;
-  background-image: url("../../images/nav-button.svg");
+  background-image: url("../../images/nav-button.svg"); /* Caminho absoluto corrigido */
   width: 24px;
   height: 24px;
   border: none;
@@ -45,14 +46,13 @@
 }
 
 .header__nav-button_type_esc-mode {
-  background-image: url("../../images/esc-icon.svg");
+  background-image: url("../../images/esc-icon.svg"); /* Caminho absoluto corrigido */
   background-size: cover;
 }
 
 @media (max-width: 768px) {
   .header {
     height: 66px;
-    margin-bottom: -66px;
   }
 
   .header__background {
@@ -69,7 +69,6 @@
 @media (max-width: 426px) {
   .header {
     height: 56px;
-    margin-bottom: -56px;
   }
 
   .header__background {

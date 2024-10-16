@@ -1,3 +1,11 @@
 .main {
   width: 100%;
+  min-height: calc(
+    100vh - 160px
+  ); /* Altura mínima para preencher a tela, considerando header e footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
 }

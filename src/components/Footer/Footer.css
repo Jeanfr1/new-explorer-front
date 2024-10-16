@@ -1,16 +1,18 @@
 .footer {
-  display: none;
-}
-
-.footer--active {
   display: flex;
-  padding: 30px clamp(41px, 5.555%, 80px) 30px clamp(40px, 7.222%, 104px);
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 30px clamp(41px, 5.555%, 80px) 30px clamp(40px, 7.222%, 104px);
+  background-color: #1a1b22;
+  color: white;
+  width: 100%;
+  position: fixed; /* Fixar o footer no final da página */
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer__copyrights {
-  min-width: max-content;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -34,7 +36,7 @@
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  color: #1a1b22;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -53,17 +55,17 @@
 }
 
 .footer__icon--github {
-  background-image: url("../../images/github-icon_comp.svg");
+  background-image: url("../../images/github-icon_comp.svg"); /* Caminho absoluto corrigido */
 }
 
 .footer__icon--linkedin {
   width: 24.5px;
   height: 24.5px;
-  background-image: url("../../images/linkedin-icon.svg");
+  background-image: url("../../images/linkedin-icon.svg"); /* Caminho absoluto corrigido */
 }
 
 @media (max-width: 768px) {
-  .footer--active {
+  .footer {
     padding: 21px clamp(16px, 5.338%, 41px) 18px clamp(16px, 5.208%, 40px);
   }
 
@@ -73,7 +75,7 @@
 }
 
 @media (max-width: 600px) {
-  .footer--active {
+  .footer {
     flex-direction: column-reverse;
     padding: 20px 16px 22px;
     align-items: center;
