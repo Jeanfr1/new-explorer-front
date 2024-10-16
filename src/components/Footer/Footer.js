@@ -7,7 +7,7 @@ function Footer({ isFooterDisplayed }) {
   return (
     <footer className={`footer ${isFooterDisplayed ? "footer--active" : ""}`}>
       <p className="footer__copyrights">
-        &copy; 2022, Powered by Itamar Reiter
+        &copy; 2024, Powered by Josean Araujo
       </p>
       <nav className="footer__navbar">
         <div className="footer__links">
@@ -15,7 +15,7 @@ function Footer({ isFooterDisplayed }) {
             Home
           </Link>
           <a
-            href="https://practicum.com/en-isr/"
+            href="https://tripleten.com.br/"
             className="footer__link"
             target="_blank"
             rel="noopener noreferrer"
