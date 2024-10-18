@@ -1,47 +1,45 @@
 import React from "react";
-import "./Footer.css"; // Importando o arquivo CSS
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const Footer = () => {
+import "./Footer.css";
+
+function Footer({ isFooterDisplayed }) {
   return (
-    <footer className="footer footer--active">
-      <div className="footer__copyrights">
-        &copy; {new Date().getFullYear()} José. Todos os direitos reservados.
-      </div>
+    <footer className={`footer ${isFooterDisplayed ? "footer--active" : ""}`}>
+      <p className="footer__copyrights">
+        &copy; 2024, Powered by Josean Araujo
+      </p>
       <nav className="footer__navbar">
-        <ul className="footer__links">
-          <li>
-            <a href="#about" className="footer__link">
-              Sobre
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="footer__link">
-              Projetos
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="footer__link">
-              Contato
-            </a>
-          </li>
-        </ul>
+        <div className="footer__links">
+          <Link to="/main" className="footer__link">
+            Home
+          </Link>
+          <a
+            href="https://tripleten.com.br/"
+            className="footer__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Practicum
+          </a>
+        </div>
+        <div className="footer__icons">
+          <a
+            href="https://github.com/Jeanfr1"
+            className="footer__icon footer__icon--github"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+          <a
+            href="https://www.linkedin.com/in/josean-araujo-3ba63b17b/"
+            className="footer__icon footer__icon--linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </div>
       </nav>
-      <div className="footer__icons">
-        <a
-          href="https://github.com"
-          className="footer__icon footer__icon--github"
-          target="_blank"
-          rel="noreferrer"
-        ></a>
-        <a
-          href="https://linkedin.com"
-          className="footer__icon footer__icon--linkedin"
-          target="_blank"
-          rel="noreferrer"
-        ></a>
-      </div>
     </footer>
   );
-};
+}
 
 export default Footer;

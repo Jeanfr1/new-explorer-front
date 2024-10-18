@@ -1,11 +1,34 @@
 import React from "react";
 import "./Main.css";
+import SearchForm from "../SearchForm/SearchForm";
+import About from "../About/About";
+import SearchResults from "../SearchResults/SearchResults";
 
-function Main() {
+function Main({
+  isLoggedIn,
+  isInsideMain,
+  isInsideSavedArticles,
+  onArticleSearch,
+  isSearching,
+  isLoading,
+  cards,
+  cardFunctions,
+  isFound,
+}) {
   return (
     <main className="main">
-      <h1>Welcome to News Explorer</h1>
-      <p>Search for the latest news and save your favorite articles!</p>
+      <SearchForm onArticleSearch={onArticleSearch} />
+      <SearchResults
+        isLoggedIn={isLoggedIn}
+        isInsideMain={isInsideMain}
+        isInsideSavedArticles={isInsideSavedArticles}
+        isSearching={isSearching}
+        isLoading={isLoading}
+        cards={cards}
+        cardFunctions={cardFunctions}
+        isFound={isFound}
+      />
+      <About />
     </main>
   );
 }

@@ -1,35 +1,46 @@
-import React, { useState } from "react";
-import "./Header.css"; // Importando o arquivo CSS
+import { Link } from "react-router-dom";
+import "./Header.css";
+import { React, useContext } from "react";
+import CurrentUserContext from "../../utils/CurrentUserContext";
+import Navigation from "../Navigation/Navigation";
 
-const Header = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  // Função para alternar o fundo do header ao rolar a página
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsActive(true);
-    } else {
-      setIsActive(false);
-    }
-  };
-
-  // Adicionando listener de rolagem
-  window.addEventListener("scroll", handleScroll);
+export default function Header({
+  isLoggedIn,
+  isMobileNavigationActive,
+  onMobileNavigationButtonClick,
+  onSavedArticlesClick,
+  insideSavedArticles,
+  onSigninClick,
+  onLogout,
+}) {
+  const currentUserValue = useContext(CurrentUserContext);
 
   return (
     <header className="header">
       <div
         className={`header__background ${
-          isActive ? "header__background_active" : ""
+          isMobileNavigationActive ? "header__background_active" : ""
         }`}
       >
-        <a href="/" className="header__logo">
-          José
-        </a>
-        <button className="header__nav-button"></button>
+        <Link to="/main" className="header__logo">
+          NewsExplorer
+        </Link>
+        <Navigation
+          isLoggedIn={isLoggedIn}
+          isActive={isMobileNavigationActive}
+          onSavedArticlesClick={onSavedArticlesClick}
+          insideMain
+          insideSavedArticles={insideSavedArticles}
+          onSigninClick={onSigninClick}
+          onLogout={onLogout}
+        />
+        <button
+          onClick={onMobileNavigationButtonClick}
+          className={`header__nav-button ${
+            isMobileNavigationActive ? "header__nav-button_type_esc-mode" : ""
+          }`}
+        />
       </div>
     </header>
   );
-};
-
-export default Header;
+}
