@@ -1,0 +1,9 @@
+.search-results {
+  display: block;
+  box-sizing: border-box;
+  background: #f5f6f7;
+}
+
+.search-results_hidden {
+  display: none;
+}
