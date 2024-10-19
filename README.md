@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+News Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+News Explorer is a web application for searching and storing news articles from around the world on any topic, pulled from well-known news sources.
 
-## Available Scripts
+The site uses NewsAPI to fetch news dynamically, allowing users to save and manage their favorite articles after registration and login.
 
-In the project directory, you can run:
+Features
 
-### `npm start`
+Global News Search: Users can search for articles on any topic from well-known global news sources.
+Authentication and Authorization: Users can register and log in to save articles to their personal account.
+Secure Article Storage: After logging in, users can securely save and access their favorite articles at any time.
+Responsive Design: The layout adapts to different devices, from desktop computers to smartphones.
+Social Media Integration: Links to the creator's social profiles are available in the interface.
+Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React: Built using functional components and React Hooks like useState, useEffect, and useContext for state management and component lifecycle.
+React Router DOM: For client-side navigation.
+External APIs:
+NewsAPI: To fetch real-time news articles.
+MainAPI: Custom API for handling user registration, login, and managing saved articles.
+JWT (JSON Web Tokens): Used for authentication and authorization, with tokens securely stored in localStorage.
+CSS Flexbox and Grid Layout: For building flexible, adaptive layouts.
+Media Queries: To ensure the app is responsive across different screen sizes.
+ESLint: To maintain code quality and catch issues during development.
+NPM (Node Package Manager): For managing project packages and dependencies.
+How to Run the Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Prerequisites
+Ensure Node.js and npm are installed on your machine.
+Obtain a valid API key from NewsAPI.
+Steps to run:
+Clone this repository:
+bash
+Copier le code
+git clone https://github.com/your-username/news-explorer.git
+Navigate to the project directory:
+bash
+Copier le code
+cd news-explorer
+Install the dependencies:
+bash
+Copier le code
+npm install
+Set up your API key:
+Create a .env file in the root of the project with the following content:
+bash
+Copier le code
+REACT_APP_NEWS_API_KEY=YOUR_API_KEY
+Run the project in development mode:
+bash
+Copier le code
+npm start
+The application will start on http://localhost:3000.
+Build for production (optional):
+To create a production build, run:
 
-### `npm test`
+bash
+Copier le code
+npm run build
+This will create a build folder with the optimized version of the app.
+Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+public/: Contains static files and the index.html.
+src/: Contains the source code, including:
+components/: Reusable UI components.
+utils/: Utility files, including API request classes.
+pages/: Different pages of the application.
+App.js: The main file for the React app.
+Authentication Management
 
-### `npm run build`
+User authentication is handled using JWT (JSON Web Tokens). After logging in, the JWT is stored in localStorage, allowing users to save and retrieve their favorite articles. All protected API requests use JWT for authentication.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Responsive Design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The layout is designed using CSS Flexbox and Grid to ensure that the interface adapts to different devices, from large desktop screens to mobile phones. Media queries are used to apply different styles based on screen width.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Best Practices
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clean and Modular Code: React components are reusable and maintainable.
+Code Quality: ESLint is used to ensure code quality and catch potential issues.
+Security: JWT is used for secure authentication and authorization.

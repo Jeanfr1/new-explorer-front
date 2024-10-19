@@ -23,7 +23,6 @@ function App() {
   const [token, setToken] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(undefined);
   const [keywordsCollection, setKeywordsCollection] = useState([]);
-
   const [isDirectedToSavedNewsRoute, setisDirectedToSavedNewsRoute] =
     useState(false);
   const [isPopupSigninOpen, setIsPopupSigninOpen] = useState(false);
@@ -62,7 +61,6 @@ function App() {
           }
         })
         .catch((err) => {
-          console.error(err);
           setIsFooterDisplayed(true);
           navigate("/main");
         });
@@ -96,7 +94,6 @@ function App() {
         }
       })
       .catch((err) => {
-        console.error(err);
         if (err === "Error: 409") {
           setSubmitError("A user with that Email already exists.");
         }
@@ -215,9 +212,7 @@ function App() {
           setIsFound(false);
         }
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch(() => {});
   }
 
   function convertDataToDate(date) {
@@ -257,9 +252,7 @@ function App() {
         setKeywordsCollection(keywords);
         sortKeywordsByFrequency();
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch(() => {});
   }
 
   function sortKeywordsByFrequency() {
@@ -285,9 +278,7 @@ function App() {
           )
         );
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch(() => {});
   }
 
   function onCardClick(card) {

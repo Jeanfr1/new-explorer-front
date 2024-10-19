@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CurrentUserContext from "../../utils/CurrentUserContext";
 import "./Navigation.css";
 

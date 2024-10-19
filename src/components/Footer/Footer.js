@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer({ isFooterDisplayed }) {

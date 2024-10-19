@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { useLocation } from "react-router-dom"; // Importar useLocation
 import "./NewsCard.css";
 
 function NewsCard({ cardFunctions, isLoggedIn, card }) {
   const [isArticleSaved, setIsArticleSaved] = useState(card.isSaved);
+  const location = useLocation(); // Hook para verificar a rota atual
+
   function toggleArticleSavedState() {
     setIsArticleSaved(!isArticleSaved);
   }
@@ -23,9 +25,14 @@ function NewsCard({ cardFunctions, isLoggedIn, card }) {
       toggleArticleSavedState();
     });
   }
+
+  // Verificar a rota atual para condicionalmente renderizar o conteúdo
+  const isMainPage = location.pathname === "/main";
+  const isSavedNewsPage = location.pathname === "/saved-news";
+
   return (
     <div className="news-card" onClick={() => cardFunctions.onCardClick(card)}>
-      <Route exact path="/main">
+      {isMainPage && (
         <div
           className="news-card__image news-card__image_type_main"
           style={{ backgroundImage: `url(${card.image})` }}
@@ -46,8 +53,9 @@ function NewsCard({ cardFunctions, isLoggedIn, card }) {
             Sign in to save articles
           </span>
         </div>
-      </Route>
-      <Route path="/saved-news">
+      )}
+
+      {isSavedNewsPage && (
         <div
           className="news-card__image news-card__image_type_saved-news"
           style={{ backgroundImage: `url(${card.image})` }}
@@ -63,7 +71,8 @@ function NewsCard({ cardFunctions, isLoggedIn, card }) {
           </span>
           <p className="news-card__keyword">{card.keyword}</p>
         </div>
-      </Route>
+      )}
+
       <div className="news-card__description">
         <span className="news-card__date">{card.date}</span>
         <h3 className="news-card__title">{card.title}</h3>

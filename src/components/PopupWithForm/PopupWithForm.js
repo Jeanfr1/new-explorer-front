@@ -23,6 +23,7 @@ function PopupWithForm({
     evt.preventDefault();
     onSubmit();
   }
+
   const closePopupOverlay = (evt) => {
     if (evt.target === evt.currentTarget) {
       onClose();
@@ -30,12 +31,10 @@ function PopupWithForm({
   };
 
   useEffect(() => {
-    if (isPopupOpen) {
-      if (inputsErrors.length === 0) {
-        setIsSubmitButtonDisabled(false);
-      } else {
-        setIsSubmitButtonDisabled(true);
-      }
+    if (inputsErrors.length === 0) {
+      setIsSubmitButtonDisabled(false);
+    } else {
+      setIsSubmitButtonDisabled(true);
     }
   }, [inputsErrors]);
 
@@ -47,7 +46,11 @@ function PopupWithForm({
       <div className="popup__content">
         <div className="popup__head">
           <h2 className="popup__title">{popupTitle}</h2>
-          <button className="popup__esc" onClick={onClose} />
+          <button
+            className="popup__esc"
+            onClick={onClose}
+            aria-label="Close popup"
+          />
         </div>
         <form className="popup__form" onSubmit={handleSubmit}>
           {children}
@@ -61,6 +64,7 @@ function PopupWithForm({
             type="submit"
             id={submitButtonId}
             disabled={isSubmitButtonDisabled}
+            aria-disabled={isSubmitButtonDisabled}
           >
             {submitButtonText}
           </button>
@@ -70,6 +74,7 @@ function PopupWithForm({
           <button
             onClick={onRelativePathClick}
             className="popup__relative-path popup__relative-path_style_link-style"
+            aria-label={`Go to ${relativePath}`}
           >
             {relativePath}
           </button>
