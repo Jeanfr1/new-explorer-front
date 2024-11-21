@@ -1,0 +1,6 @@
+@import url(../../vendor/fonts.css);
+.app {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
