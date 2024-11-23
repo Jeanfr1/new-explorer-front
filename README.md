@@ -30,25 +30,25 @@ Potential improvements that can enhance this project:
 
 ```bash
 git clone https://github.com/your-username/new-explorer-front.git
-
+```
 
 2. Navigate to the project directory:
 
 ```bash
 cd new-explorer-front
-
+```
 
 3. Navigate to the project directory:
 
 ```bash
 npm install
-
+```
 
 4. Start the development server:
 
 ```bash
 npm start
-
+```
 The application will automatically open in your default browser at http://localhost:3000.
 
 
